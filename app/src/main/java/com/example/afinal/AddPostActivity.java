@@ -51,6 +51,7 @@ public class AddPostActivity extends AppCompatActivity {
 
     String name,email,uid,dp;
 
+    String post=null;
     Uri image_rui=null;
     ProgressDialog pd;
 
@@ -115,6 +116,7 @@ public class AddPostActivity extends AppCompatActivity {
         imageIv=findViewById(R.id.pImageTv);
         uploadBtn=findViewById(R.id.pUploadBtn);
 
+
         //get image from camera/gallery on click
         imageIv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +130,8 @@ public class AddPostActivity extends AppCompatActivity {
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                post=descriptionEt.getText().toString().trim();
                 String title=titleEt.getText().toString().trim();
                 String description =descriptionEt.getText().toString().trim();
 
@@ -154,6 +158,10 @@ public class AddPostActivity extends AppCompatActivity {
 
                 }
 
+                Intent intent=new Intent(AddPostActivity.this,showPost.class);
+                intent.putExtra("post",post);
+                startActivity(intent);
+
             }
         });
 
@@ -168,6 +176,7 @@ public class AddPostActivity extends AppCompatActivity {
        String filePathAndName="Posts/" +"post_" +timeStamp;
 
         if (!uri.equals("noImage")){
+
             //post with image
             StorageReference ref= FirebaseStorage.getInstance().getReference().child(filePathAndName);
             ref.putFile(Uri.parse(uri))
@@ -208,7 +217,11 @@ public class AddPostActivity extends AppCompatActivity {
                                                 image_rui=null;
 
                                             }
+
+
+
                                         })
+
                                         .addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
@@ -275,6 +288,7 @@ public class AddPostActivity extends AppCompatActivity {
                     });
 
         }
+
 
     }
 

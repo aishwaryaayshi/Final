@@ -300,4 +300,18 @@ pd.dismiss();
         });
     }
 
+    private  void checkUserStatus(){
+        //get current user
+        FirebaseUser user=mAuth.getCurrentUser();
+        if (user !=null)
+        {
+
+        }
+        else {
+            startActivity(new Intent(LoginActivity.this,MainActivity.class));
+            finish();
+        }
+
+    }
+
 }

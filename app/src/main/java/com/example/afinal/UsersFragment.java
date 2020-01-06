@@ -17,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.afinal.adapters.AdapterUsers;
 import com.google.firebase.auth.FirebaseAuth;
@@ -79,6 +80,7 @@ public class UsersFragment extends Fragment {
             usersList.clear();
             for (DataSnapshot ds:dataSnapshot.getChildren()){
                 ModelUsers modelUsers=ds.getValue(ModelUsers.class);
+
 
                 if (!modelUsers.getUid().equals(fUser.getUid())){
                     usersList.add(modelUsers);

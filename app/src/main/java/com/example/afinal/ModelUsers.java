@@ -2,7 +2,7 @@ package com.example.afinal;
 
 public class ModelUsers {
     //use same name as in firebase database
-    String name,email,search,phone,image,cover,uid;
+    String name,email,search,phone,image,cover,uid,post;
 
     public ModelUsers() {
 
@@ -16,6 +16,7 @@ public class ModelUsers {
         this.image = image;
         this.cover = cover;
         this.uid = uid;
+
     }
 
     public String getName() {
@@ -73,4 +74,6 @@ public class ModelUsers {
     public void setUid(String uid) {
         this.uid = uid;
     }
+
+
 }

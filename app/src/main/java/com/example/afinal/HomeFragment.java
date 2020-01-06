@@ -14,8 +14,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.afinal.adapters.AdapterUsers;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -33,8 +36,8 @@ import java.util.List;
  */
 public class HomeFragment extends Fragment {
 
+    List<ModelUsers> usersList;
     FirebaseAuth firebaseAuth;
-
 
 
     public HomeFragment() {
@@ -67,8 +70,16 @@ public class HomeFragment extends Fragment {
         postList=new ArrayList<>();
         loadPosts();*/
 
-        return view;
 
+
+
+
+       /* image.add(R.drawable.ic_users_black);
+        name.add("Arifuzzaman Arif");
+        post.add("this is my first post");
+        final customAdapter adapter = new customAdapter(getContext(), image,name,post);
+        listView.setAdapter(adapter);*/
+        return view;
     }
 /*
     private void loadPosts() {
@@ -198,5 +209,9 @@ public class HomeFragment extends Fragment {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
 
 }

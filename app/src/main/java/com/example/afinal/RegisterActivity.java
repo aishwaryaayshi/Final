@@ -116,7 +116,7 @@ mAuth=FirebaseAuth.getInstance();
                             reference.child(uid).setValue(hashMap);
 
                             Toast.makeText(RegisterActivity.this,"Registered.....\n"+user.getEmail(),Toast.LENGTH_SHORT).show();
-startActivity(new Intent(RegisterActivity.this, DashboardActivity.class));
+      startActivity(new Intent(RegisterActivity.this, DashboardActivity.class));
                        finish();
                         } else {
                             // If sign in fails, display a message to the user.
