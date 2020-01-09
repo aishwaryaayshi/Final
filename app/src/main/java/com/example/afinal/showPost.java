@@ -50,10 +50,7 @@ public class showPost extends AppCompatActivity {
     private void getAllPost() {
         final FirebaseUser fUser= FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference ref= FirebaseDatabase.getInstance().getReference("Users");
-        Bundle bundle=getIntent().getExtras();
-        if(bundle!=null){
-            post.add(bundle.getString("post"));
-        }
+
         //get all data from path
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -65,16 +62,29 @@ public class showPost extends AppCompatActivity {
                     if (!modelUsers.getUid().equals(fUser.getUid())){
                         usersList.add(modelUsers);
                     }
+                    Bundle bundle=getIntent().getExtras();
+                    if(bundle!=null){
+                        post.add(bundle.getString("post"));
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),"null bundle",Toast.LENGTH_LONG).show();
+                    }
                     image.add(R.drawable.ic_profile_black);
                     name.add(modelUsers.name);
-                   ;
+
                     //Toast.makeText(getContext(),"bal"+post,Toast.LENGTH_LONG).show();
-                    adapter=new customAdapter(showPost.this,image,name,post);
-                    listView.setAdapter(adapter);
+                    try{
+                        adapter=new customAdapter(showPost.this,image,name,post);
+                        listView.setAdapter(adapter);
+                    }
+                    catch (Exception e){
+                        e.printStackTrace();
+                    }
+
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Toast.makeText(showPost.this,"bal"+name,Toast.LENGTH_LONG).show();
+                            Toast.makeText(showPost.this,"Name :"+name,Toast.LENGTH_LONG).show();
                         }
                     });
                 }

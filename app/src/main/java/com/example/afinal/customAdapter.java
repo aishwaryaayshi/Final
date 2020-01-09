@@ -35,7 +35,7 @@ public class customAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return getItem(position);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class customAdapter extends BaseAdapter {
         //ImageView imageView=convertView.findViewById(R.id.imgView);
         ImageView imageView=convertView.findViewById(R.id.image);
         TextView nameText=convertView.findViewById(R.id.name);
-        TextView postText=convertView.findViewById(R.id.post);
+        TextView postText=convertView.findViewById(R.id.Post);
         //TextView timeText=convertView.findViewById(R.id.time);
         imageView.setImageResource(image.get(position));
         nameText.setText(id.get(position));

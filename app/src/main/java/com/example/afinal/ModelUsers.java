@@ -16,7 +16,6 @@ public class ModelUsers {
         this.image = image;
         this.cover = cover;
         this.uid = uid;
-
     }
 
     public String getName() {

@@ -132,6 +132,10 @@ public class AddPostActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 post=descriptionEt.getText().toString().trim();
+                Intent intent=new Intent(AddPostActivity.this,showPost.class);
+                intent.putExtra("post",post);
+                startActivity(intent);
+
                 String title=titleEt.getText().toString().trim();
                 String description =descriptionEt.getText().toString().trim();
 
@@ -158,9 +162,7 @@ public class AddPostActivity extends AppCompatActivity {
 
                 }
 
-                Intent intent=new Intent(AddPostActivity.this,showPost.class);
-                intent.putExtra("post",post);
-                startActivity(intent);
+
 
             }
         });

@@ -31,7 +31,7 @@
 
     </LinearLayout>
     <TextView
-        android:id="@+id/post"
+        android:id="@+id/Post"
         android:text="post"
         android:textColor="#202022"
         android:textSize="18dp"
